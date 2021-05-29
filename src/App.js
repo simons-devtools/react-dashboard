@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import './styles/App.scss';
-// import './styles/Products.css';
 import { IntlProvider } from 'react-intl';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Layout from "./Components/Layout";
@@ -17,6 +16,9 @@ import BankCash from "./Orders/Checkout/BankCash";
 import Delivery from "./Orders/Delivery";
 
 // For the cart products:
+import Test from "./Cart/Test";
+
+// For the products:
 import SmartPhone from "./Products/Collection-1/SmartPhone";
 import TabletPhone from "./Products/Collection-1/TabletPhone";
 import Laptop from "./Products/Collection-1/Laptop";
@@ -24,11 +26,8 @@ import Desktop from "./Products/Collection-1/Desktop";
 import FeaturePhone from "./Products/Collection-1/FeaturePhone";
 import SecurityCamera from "./Products/Collection-1/SecurityCamera";
 
-// For the products:
-import Test from "./Cart/Test";
-
-
 const App = () => {
+
   return (
     <IntlProvider>
       <BrowserRouter>

@@ -25,8 +25,11 @@ function Layout(props) {
           handleCollapsedChange={handleCollapsedChange}
         />
       </div>
+      
       <div className="body-content">
-        <Main handleToggleSidebar={handleToggleSidebar} />
+        <Main
+          handleToggleSidebar={handleToggleSidebar}
+        />
         {props.children}
       </div>
     </div>
