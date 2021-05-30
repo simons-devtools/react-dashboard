@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SmartPhn from './Categories/SmartPhn';
 import Loading from '../../assets/loading.gif';
+import ViewProduct from './Categories/ViewProduct';
 
 const SmartPhone = () => {
     const [products, setProducts] = useState([]);
@@ -13,9 +14,44 @@ const SmartPhone = () => {
             .then(data => setProducts(data))
     }, [])
 
+    // View product handle:
+    const handleView = (key) => {
+        // console.log('View product ID', key);
+        const modal = document.getElementById("myModal");
+        modal.style.display = "block";
+
+        const span = document.getElementsByClassName("close")[0];
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+
+    // Edit product handle:
+    const handleEdit = (key) => {
+        console.log('Edit product ID', key);
+    }
+
+    // Delete product handle:
+    const handleDelete = (key) => {
+        console.log('Delete product ID', key);
+    }
+
     return (
         <>
-            <h1>Customize your <span style={{color: 'tomato'}}>"smart phone"</span> products</h1>
+            <div id="myModal" className="modal">
+                <div>
+                    <span class="close">&times;</span>
+                    <ViewProduct />
+                </div>
+            </div>
+
+            <h1>Customize your <span style={{ color: 'tomato' }}>"smart phone"</span> products</h1>
             {
                 products.length <= 0 ? <img style={{ margin: 'auto' }} src={Loading} /> :
                     <div>
@@ -37,17 +73,23 @@ const SmartPhone = () => {
                                     <th><input type="checkbox" /></th>
                                     <th>Sellect all</th>
                                     <th>Products name</th>
-                                    <th>Collection</th>
+                                    <th>Collect</th>
+                                    <th>Products group</th>
                                     <th>Category</th>
                                     <th>Products key</th>
                                     <th>Price</th>
-                                    <th>Update</th>
-                                    <th>Remove</th>
+                                    <th>Products action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
-                                    products.map(pd => pd.category === 'tablet' ? <SmartPhn product={pd} key={pd.key} /> : '')
+                                    products.map(pd => pd.category === 'tablet' ?
+                                        <SmartPhn
+                                            product={pd} key={pd.key}
+                                            handleView={handleView}
+                                            handleEdit={handleEdit}
+                                            handleDelete={handleDelete}
+                                        /> : '')
                                 }
                             </tbody>
                         </table>
