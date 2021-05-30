@@ -78,7 +78,7 @@ const SmartPhone = () => {
                                     <th>Category</th>
                                     <th>Products key</th>
                                     <th>Price</th>
-                                    <th>Products action</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>

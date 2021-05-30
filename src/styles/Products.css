@@ -1,4 +1,8 @@
-/* All product viewer/table styles: */
+/* 
+All product viewer/table styles: 
+    01. (SmartPhone.jsx) 
+    02. (SmartPhn.jsx) 
+*/
 table {
     width: 100%;
     border-collapse: collapse;
@@ -18,37 +22,24 @@ tbody tr:hover {
     background-color: #fdf9f9;
 }
 
-tbody tr button {
-    font-size: 18px;
-    padding: 0 5px;
-    border: none;
-    background-color: transparent;
+.action {
+    height: 25px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 50%;
     cursor: pointer;
 }
 
-tbody tr button:hover {
-    text-decoration: underline;
+.action:hover {
+    border-radius: 50%;
+    background-color: gainsboro;
 }
 
-tbody tr button:focus {
-    text-decoration: none;
-    border: 1px solid grey;
-    opacity: 50%;
+.prod-view {
+    color: blueviolet;
+    cursor: pointer;
 }
 
-.btn-view {
-    color: #47d804d8;
-}
-
-.btn-edit {
-    color: blue;
-}
-
-.btn-delete {
-    color: red;
-}
-
-/* Single products viewer styles: */
 .modal {
     display: none;
     position: fixed;
@@ -57,7 +48,6 @@ tbody tr button:focus {
     width: 80%;
     color: azure;
     background-color: #c9b5b5;
-    border-radius: 10px;
     overflow-y: scroll;
     overflow-x: auto;
   }
@@ -77,8 +67,7 @@ tbody tr button:focus {
     cursor: pointer;
   }
 
+/* Single products viewer styles: (ViewProduct.jsx) */
    .modal-content {
         padding: 20px;
-        /* overflow-y: scroll; */
-        /* overflow-x: hidden; */
    }
