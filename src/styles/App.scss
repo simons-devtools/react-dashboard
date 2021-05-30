@@ -9,12 +9,12 @@ $icon-bg-color: rgba(255, 255, 255, 0.05);
 $icon-size: 35px;
 
 @import "~react-pro-sidebar/dist/scss/styles.scss";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 body {
   margin: 0;
   height: 100vh;
   color: #353535;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 #root {
@@ -79,20 +79,6 @@ body {
     }
   }
 
-  // main {
-  //   flex-grow: 1;
-  //   display: flex;
-  //   flex-direction: column;
-  //   overflow-y: auto;
-  //   header {
-  //     border-bottom: 1px solid #efefef;
-  //   }
-  // }
-
-  .sidebar-content {
-    flex-basis: 15%;
-  }
-
   .sidebar-content a {
     color: #adadad;
     text-decoration: none;
@@ -100,38 +86,34 @@ body {
 
   /* Let's get this party started */
   .body-content {
-    flex-basis: 85%;
+    flex-basis: 100%;
     padding: 15px;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: scroll;
   }
 
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 5px;
   }
 
-::-webkit-scrollbar-track {
+  ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px #0000004d;
     -webkit-border-radius: 10px;
     border-radius: 10px;
   }
 
-::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
     background: #ff0000cc;
-    -webkit-box-shadow: inset 0 0 6px #00000080;
   }
-::-webkit-scrollbar-thumb:window-inactive {
+  ::-webkit-scrollbar-thumb:window-inactive {
     background-color: #ff000066;
   }
 
   @media (max-width: 767.98px) {
     overflow-x: hidden;
-    header {
-      h1 {
-        font-size: 24px;
-      }
+    h1 {
+      font-size: 24px;
     }
   }
 
@@ -159,4 +141,23 @@ body {
     color: #000000;
     background: #ffd331;
   }
+}
+
+// Other contents styles:
+.backButton {
+  color: azure;
+  width: 300px;
+  padding: 10px 5px;
+  font-size: 24px;
+  background-color: #6363ff;
+  border: none;
+  cursor: pointer;
+}
+
+.backButton:hover {
+  opacity: 80%;
+}
+
+.backButton:focus {
+  border:  1px solid tomato;
 }
