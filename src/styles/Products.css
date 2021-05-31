@@ -35,10 +35,6 @@ tbody tr:hover {
     background-color: gainsboro;
 }
 
-.prod-view {
-    color: blueviolet;
-}
-
 .modal {
     display: none;
     position: fixed;
@@ -48,9 +44,10 @@ tbody tr:hover {
     color: azure;
     background-color: #ffffff;
     border: 1px solid tomato;
+    box-shadow: 2px 3px 10px 3px #000;
+    margin: 0 15px;
     overflow-y: scroll;
     overflow-x: auto;
-    box-shadow: 2px 3px 10px 3px #000;
   }
   
   .close {
