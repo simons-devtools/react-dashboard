@@ -37,7 +37,6 @@ tbody tr:hover {
 
 .prod-view {
     color: blueviolet;
-    cursor: pointer;
 }
 
 .modal {
@@ -47,13 +46,15 @@ tbody tr:hover {
     bottom: 13%;
     width: 80%;
     color: azure;
-    background-color: #c9b5b5;
+    background-color: #ffffff;
+    border: 1px solid tomato;
     overflow-y: scroll;
     overflow-x: auto;
+    box-shadow: 2px 3px 10px 3px #000;
   }
   
   .close {
-    color: azure;
+    color: gray;
     position: fixed;
     right: 3%;
     font-size: 36px;
@@ -69,5 +70,54 @@ tbody tr:hover {
 
 /* Single products viewer styles: (ViewProduct.jsx) */
    .modal-content {
-        padding: 20px;
+        max-width: 90%;
+        margin: auto;
+        padding: 30px 15px;
    }
+
+   .product-detail {
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: space-between;
+   }
+
+   .product-detail input {
+        width: 350px;
+        height: 40px;
+        padding: 0 10px;
+        margin: 10px 0;
+        border:  1px solid blueviolet;
+   }
+
+   .product-detail img {
+       width: 60%;
+       height: 500px;
+       cursor: pointer;
+   }
+
+   .product-features textarea {
+        width: 100%;
+        height: 200px;
+        border: 1px solid blueviolet;
+
+   }
+
+   .product-features button {
+       width: 150px;
+       height: 30px;
+       font-weight: bold;
+       letter-spacing: 1px;
+       color: azure;
+       background-color: green;
+   }
+
+   .product-features button:hover {
+       opacity: 80%;
+       cursor: pointer;
+   }
+
+   .product-features button:focus {
+       opacity: 100%;
+   }
+
+   /* ------------------------------------ */

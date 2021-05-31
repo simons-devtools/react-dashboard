@@ -5,7 +5,7 @@ import ViewProduct from './Categories/ViewProduct';
 
 const SmartPhone = () => {
     const [products, setProducts] = useState([]);
-    // const newData = products.slice(0, 21);
+    const [singleProduct, setSingleProduct] = useState({});
 
     useEffect(() => {
         const url = 'http://localhost:5200/products'
@@ -14,9 +14,9 @@ const SmartPhone = () => {
             .then(data => setProducts(data))
     }, [])
 
-    // View product handle:
-    const handleView = (key) => {
-        // console.log('View product ID', key);
+    // View single product handler func:
+    const handleView = (product) => {
+        console.log('View product ID', product);
         const modal = document.getElementById("myModal");
         modal.style.display = "block";
 
@@ -30,14 +30,10 @@ const SmartPhone = () => {
                 modal.style.display = "none";
             }
         }
+        setSingleProduct(product);
     }
 
-    // Edit product handle:
-    const handleEdit = (key) => {
-        console.log('Edit product ID', key);
-    }
-
-    // Delete product handle:
+    // Delete single product handler func:
     const handleDelete = (key) => {
         console.log('Delete product ID', key);
     }
@@ -47,7 +43,7 @@ const SmartPhone = () => {
             <div id="myModal" className="modal">
                 <div>
                     <span class="close">&times;</span>
-                    <ViewProduct />
+                    <ViewProduct singleProduct={singleProduct} />
                 </div>
             </div>
 
@@ -87,7 +83,6 @@ const SmartPhone = () => {
                                         <SmartPhn
                                             product={pd} key={pd.key}
                                             handleView={handleView}
-                                            handleEdit={handleEdit}
                                             handleDelete={handleDelete}
                                         /> : '')
                                 }
