@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const Page1 = () => {
+const AddProduct = () => {
     const { register, handleSubmit } = useForm();
     const [photoUrl, setPhotoUrl] = useState(null);
 
@@ -69,7 +69,7 @@ const Page1 = () => {
                         <div className="second-input">
                             <input type="seller" placeholder="seller" {...register("seller")} />
                             <input type="author" placeholder="Author" {...register("author")} />
-                            <input type="file" onChange={handleImageUpload} />
+                            <input type="file" onChange={handleImageUpload} className="image-filed" />
                             <input type="date" {...register("date", { required: true })} />
                         </div>
                     </div>
@@ -83,4 +83,4 @@ const Page1 = () => {
     );
 }
 
-export default Page1;
+export default AddProduct;

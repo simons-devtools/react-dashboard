@@ -166,6 +166,14 @@ body {
 }
 
 // Add products page contents styles:
+.main {
+  margin: 0 20px;
+}
+
+.main-form .image-filed {
+  border: 1px solid #000;
+}
+
 .main-form {
   display: flex;
   flex-wrap: wrap;
@@ -175,8 +183,9 @@ body {
 
 .main-form input {
   width: 270px;
-  padding: 10px;
+  padding: 11px 5px;
   margin: 5px 10px 20px 0;
+  background-color: transparent;
 }
 
 .third-input {
@@ -184,5 +193,6 @@ body {
   textarea {
     width: 100%;
     height: 200px;
+    background-color: transparent;
   }
 }

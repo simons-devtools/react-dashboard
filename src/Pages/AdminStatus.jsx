@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Page3 = (props) => {
+const AdminStatus = (props) => {
     return (
         <div>
             <h2>I am admin status.</h2>
@@ -8,4 +8,4 @@ const Page3 = (props) => {
     );
 };
 
-export default Page3;
+export default AdminStatus;

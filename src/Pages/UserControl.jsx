@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Page2 = (props) => {
+const UserControl = (props) => {
     return (
         <div>
             <h2>I am users control.</h2>
@@ -8,4 +8,4 @@ const Page2 = (props) => {
     );
 }
 
-export default Page2;
+export default UserControl;

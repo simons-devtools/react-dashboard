@@ -4,9 +4,9 @@ import { IntlProvider } from 'react-intl';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Layout from "./Components/Layout";
 import Dashboard from "./Pages/Dashboard";
-import Page1 from "./Pages/Page-1";
-import Page2 from "./Pages/Page-2";
-import Page3 from "./Pages/Page-3";
+import AddProduct from "./Pages/AddProduct";
+import UserControl from "./Pages/UserControl";
+import AdminStatus from "./Pages/AdminStatus";
 import NotFound from "./Pages/NotFound";
 
 // For the orders revoew:
@@ -36,9 +36,9 @@ const App = () => {
             <Switch>
               <Route path="/" exact component={Dashboard} />
               <Route path="/dashboard" exact component={Dashboard} />
-              <Route path="/dashboard/add-products" component={Page1} />
-              <Route path="/dashboard/users-control" component={Page2} />
-              <Route path="/dashboard/admin-status" component={Page3} />
+              <Route path="/dashboard/add-products" component={AddProduct} />
+              <Route path="/dashboard/users-control" component={UserControl} />
+              <Route path="/dashboard/admin-status" component={AdminStatus} />
 
               {/* For orders review route */}
               <Route path="/dashboard/orders-review/processing" component={Processing} />
