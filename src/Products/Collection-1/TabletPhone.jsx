@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import CategoryProducts from './Categories/CategoryProducts';
+import CategoryProducts from '../Categories/CategoryProducts';
 import Loading from '../../assets/loading.gif';
-import ViewProduct from './Categories/ViewProduct';
+import ViewProduct from '../Categories/ViewProduct';
 
 const TabletPhone = () => {
     const [products, setProducts] = useState([]);

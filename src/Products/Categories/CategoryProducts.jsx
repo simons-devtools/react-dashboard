@@ -1,6 +1,6 @@
 import React from 'react';
-import EditImg from '../../../assets/edit.png';
-import DeleteImg from '../../../assets/trush.png';
+import EditImg from '../../assets/edit.png';
+import DeleteImg from '../../assets/trush.png';
 
 const CategoryProducts = (props) => {
     // console.log(props.product);
