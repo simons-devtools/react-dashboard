@@ -6,8 +6,8 @@ const ViewProduct = (props) => {
 
     return (
         <>
-            <h2 style={{color: '#000', marginLeft: '60px'}}>Update your specific product</h2>
             <div className="modal-content">
+                <h2>Update your specific product</h2>
                 <div className="product-detail">
                     <form action="#">
                         <input type="text" defaultValue={name} /> <br />

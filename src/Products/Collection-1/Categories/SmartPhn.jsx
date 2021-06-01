@@ -4,12 +4,15 @@ import DeleteImg from '../../../assets/trush.png';
 
 const SmartPhn = (props) => {
     // console.log(props.product);
-    const { product, handleView, handleDelete } = props;
+    const { product, handleView, handleClickOpen, checked, singleCheckedBox } = props;
     const { photoUrl, name, collection, group, category, key, price } = product;
 
     return (
         <tr>
-            <td><input type="checkbox" /></td>
+            <th><input type="checkbox"
+                checked={checked}
+                onChange={singleCheckedBox}
+            /></th>
             <td><img src={photoUrl} style={{ width: '70px', height: '50px' }} /></td>
             <td>{name}</td>
             <td>{collection}</td>
@@ -19,7 +22,7 @@ const SmartPhn = (props) => {
             <td>{price}</td>
             <td>
                 <img onClick={() => handleView(product)} src={EditImg} className="action" />
-                <img onClick={() => handleDelete(key)} src={DeleteImg} className="action" />
+                <img onClick={() => handleClickOpen(key)} src={DeleteImg} className="action" />
             </td>
         </tr>
     );
