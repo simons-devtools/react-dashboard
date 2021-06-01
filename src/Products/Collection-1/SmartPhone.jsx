@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import SmartPhn from './Categories/SmartPhn';
+import CategoryProducts from './Categories/CategoryProducts';
 import Loading from '../../assets/loading.gif';
 import ViewProduct from './Categories/ViewProduct';
-import AlertDialog from './Categories/AlertDialog';
 
 const SmartPhone = () => {
     const [products, setProducts] = useState([]);
@@ -34,28 +33,17 @@ const SmartPhone = () => {
     }
 
     // Delete single product handler func:
-    // const handleDelete = (key) => {
-    //     console.log('Delete product ID', key);
-    //     const modal = document.getElementById("deleteModal");
-    //     modal.style.display = "block";
+    const handleDelete = (key) => {
+        console.log('Delete product ID', key);
+        const modal = document.getElementById("deleteModal");
+        modal.style.display = "block";
 
-    //     // const cancel = document.getElementsByClassName("cancel")[0];
-    //     // cancel.onclick = function () {
-    //     //     modal.style.display = "none";
-    //     // }
+        const cancel = document.getElementsByClassName("cancel")[0];
+        cancel.onclick = function () {
+            modal.style.display = "none";
+        }
 
-    // }
-
-    const [open, setOpen] = React.useState(false);
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-
-    const handleClickOpen = (key) => {
-        console.log('Delete clicked', key);
-        setOpen(true);
-    };
+    }
 
     // Checkbox function:
     const [multiple, setMultiple] = useState(false);
@@ -71,9 +59,6 @@ const SmartPhone = () => {
         setSingle(oneByOne);
     };
 
-    // console.log('Single checked', single);
-    // console.log('Multiple checked', multiple);
-
     return (
         <>
             <div id="myModal" className="modal">
@@ -83,13 +68,11 @@ const SmartPhone = () => {
                 </div>
             </div>
             <div id="deleteModal" className="delete-modal">
-                <AlertDialog
-                    open={open}
-                    handleClose={handleClose}
-                />
-                {/* <h2>Are you sure delete this product?</h2>
-                <button className="delete" >Delete</button>
-                <button className="cancel" >Cancel</button> */}
+                <div className="delete-content">
+                    <h2>Are you sure delete this product?</h2>
+                    <button className="delete">Agree</button>
+                    <button className="cancel">Disagree</button>
+                </div>
             </div>
             <h1 style={{ padding: '0 15px' }}>Customize your <span style={{ color: 'tomato' }}>"smart phone"</span> products</h1>
             {
@@ -127,14 +110,13 @@ const SmartPhone = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        products.map(pd => pd.category === 'tablet' ?
-                                            <SmartPhn
+                                        products.map(pd => pd.category === 'smart-phone' ?
+                                            <CategoryProducts
                                                 checked={single}
                                                 singleCheckedBox={singleCheckedBox}
                                                 product={pd} key={pd.key}
                                                 handleView={handleView}
-                                                // handleDelete={handleDelete}
-                                                handleClickOpen={handleClickOpen}
+                                                handleDelete={handleDelete}
                                             /> : '')
                                     }
                                 </tbody>
