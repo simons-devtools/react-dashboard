@@ -86,31 +86,10 @@ body {
     text-decoration: none;
   }
 
-  /* Let's get this party started */
   .body-content {
     flex-basis: 100%;
-    // padding: 15px;
     overflow-y: scroll;
     overflow-x: auto;
-  }
-
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px #0000004d;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: #ff0000cc;
-  }
-  ::-webkit-scrollbar-thumb:window-inactive {
-    background-color: #ff000066;
   }
 
   @media (max-width: 767.98px) {
@@ -145,8 +124,30 @@ body {
     background: #ffd331;
   }
 }
+// end sidebar;
 
-// Dashboard page styles:
+   /* Start scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #0000004d;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #ff0000cc;
+  }
+  ::-webkit-scrollbar-thumb:window-inactive {
+    background-color: #ff000066;
+  }
+  // end scrollbar;
+
+// Dashboard page styles: (Dashboard.jsx)
 main {
   display: flex;
   flex-wrap: wrap;
@@ -160,7 +161,7 @@ main {
   margin: 10px 5px;
 }
 
-// 404 page contents styles:
+// 404 page contents styles: (NotFound.jsx)
 .backButton {
   color: azure;
   width: 300px;
@@ -179,50 +180,87 @@ main {
   border: 1px solid tomato;
 }
 
-// Add products page contents styles:
+// Add products page contents styles: (AddProduct.jsx)
 .main {
-  margin: 0 20px;
-}
-
-.main-form .image-filed {
-  border: 1px solid #000;
+  padding: 20px;
+  margin: 30px;
+  background-color: #fff;
 }
 
 .main-form {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0 0 20px 0;
 }
 
-.main-form input {
-  width: 270px;
-  padding: 11px 5px;
-  margin: 5px 10px 20px 0;
+.left-input {
+  flex-basis: 30%;
+  flex-direction: column;
+}
+
+.left-input input {
+  width: 250px;
+  padding: 10px 5px;
+  margin: 10px 5px;
+  border: 1px solid #000;
   background-color: transparent;
 }
 
-.third-input {
-  margin-right: 32px;
-  textarea {
-    width: 100%;
-    height: 200px;
-    background-color: transparent;
-  }
+.right-input {
+  flex-basis: 30%;
+  flex-direction: column;
 }
 
-// Users control page styles:
+.right-input .file {
+  border: 1px solid #000;
+}
+
+.right-input input {
+  width: 250px;
+  padding: 10px 5px;
+  margin: 9px 5px;
+  border: 1px solid #000;
+  background-color: transparent;
+}
+
+.last-input textarea {
+  width: 400px;
+  height: 67%;
+}
+
+.last-input .add-btn {
+  width: 255px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: azure;
+  background-color: green;
+  padding: 10px 5px;
+  margin-top: 12px;
+  border: none;
+}
+
+.last-input .add-btn:hover {
+  opacity: 50%;
+  cursor: pointer;
+  border: 1px solid blueviolet;
+}
+
+.last-input .add-btn:focus {
+  color: red;
+  border: 1px solid blueviolet;
+}
+
+// Users control page styles: (UserControl.jsx)
 .user-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .user-data .user-name {
@@ -231,7 +269,7 @@ main {
   cursor: pointer;
 }
 
-// Users single page styles:
+// Users single page styles: (Users.jsx)
 .user-modal-content {
   position: fixed;
   z-index: 1;

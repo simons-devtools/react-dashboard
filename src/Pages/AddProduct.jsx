@@ -19,6 +19,8 @@ const AddProduct = () => {
             group: data.group,
             seller: data.seller,
             key: data.key,
+            stock: data.stock,
+            discount: data.discount,
             photoUrl: photoUrl
         };
         const url = `http://localhost:5200/addProduct`;
@@ -58,7 +60,8 @@ const AddProduct = () => {
             <div className="form-container">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="main-form">
-                        <div className="first-input">
+                        <div className="left-input">
+                            <h3>First products box</h3>
                             <input type="name" placeholder="Name" {...register("name")} />
                             <input type="number" placeholder="Price" {...register("price")} />
                             <input type="category" placeholder="Category" {...register("category")} />
@@ -66,17 +69,21 @@ const AddProduct = () => {
                             <input type="group" placeholder="group" {...register("group")} />
                             <input type="key" placeholder="key" {...register("key")} />
                         </div>
-                        <div className="second-input">
+                        <div className="right-input">
+                            <h3>Middle products box</h3>
                             <input type="seller" placeholder="seller" {...register("seller")} />
                             <input type="author" placeholder="Author" {...register("author")} />
-                            <input type="file" onChange={handleImageUpload} className="image-filed" />
+                            <input type="file" onChange={handleImageUpload} className="file" />
+                            <input type="stock" {...register("stock", { required: true })} />
+                            <input type="discount" {...register("discount", { required: true })} />
                             <input type="date" {...register("date", { required: true })} />
                         </div>
+                        <div className="last-input">
+                            <h3>Last products box</h3>
+                            <textarea type="text" placeholder="Enter your product features. . ." {...register("features")} /> <br />
+                            <input type="submit" value="Add product" className="add-btn" />
+                        </div>
                     </div>
-                    <div className="third-input">
-                        <textarea type="text" placeholder="Enter your product features. . ." {...register("features")} />
-                    </div>
-                    <input type="submit" value="Add product" style={{ width: '300px', padding: '15px' }} />
                 </form>
             </div>
         </div>
