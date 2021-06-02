@@ -1,65 +1,80 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Users from '../Single-pages/Users/Users';
 
-const UserControl = (props) => {
+const UserControl = () => {
+    const [singleUser, setSingleUser] = useState({});
+
+    // View single product handler func:
+    const handleProfile = () => {
+        const modal = document.getElementById("userModal");
+        modal.style.display = "block";
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        // setSingleUser(user);
+    }
+
+    // Delete single product handler func:
+    const userDelete = () => {
+        const modal = document.getElementById("modalDelete");
+        modal.style.display = "block";
+
+        const cancel = document.getElementsByClassName("cancel")[0];
+        cancel.onclick = function () {
+            modal.style.display = "none";
+        }
+    }
+
     return (
-        <div className="main-profile">
-
-            <div class="profile-left">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="" />
-                <ul>
-                    <li style={{ fontWeight: 'bold' }}>Login account status</li>
-                    <li>simonhembrom</li>
-                    <li>cmoxsh@gmail.com</li>
-                    <li>pass: abcd1234</li>
-                    <li>active: 02/06/2021</li>
-                </ul>
-            </div>
-
-            <div className="profile-right">
-                <div className="content-top">
-                    <div className="">
-                        <h2>Mr. simon hembrom</h2>
-                        <h3 style={{ color: 'blueviolet' }}>Web Developer and Designer</h3>
-                        <p>Complete order: 8/10</p>
-                    </div>
-                    <div className="">
-                        <button>Edit Profile</button>
+        <div style={{ margin: '20px' }}>
+            <div className="">
+                <div id="userModal" className="user-modal">
+                    <div className="user-modal-content">
+                        <Users />
                     </div>
                 </div>
-
-                <div>
-                    <h3 style={{ borderBottom: '1px solid #7270701e' }}>User basic shipment information</h3>
-                    <div className="tween-content">
-                        <div className="user-title">
-                            <ul>
-                                <li>User ID</li>
-                                <li>First name</li>
-                                <li>Last name</li>
-                                <li>Username</li>
-                                <li>Email address</li>
-                                <li>Phone no</li>
-                                <li>Address</li>
-                                <li>User status</li>
-                            </ul>
-                        </div>
-                        <div className="user-info">
-                            <ul>
-                                <li>df4564dfd547df125jh5</li>
-                                <li>Mr. simon</li>
-                                <li>hembrom</li>
-                                <li>simonhembrom</li>
-                                <li>simonhembrom.dev@gmail.com</li>
-                                <li>+880 1799867752</li>
-                                <li>Salna-bazar, Gazipur-shadar, Dhaka, BD</li>
-                                <li style={{ color: 'greenyellow' }}>Active</li>
-                            </ul>
-                        </div>
+                <div id="modalDelete" className="delete-modal">
+                    <div className="delete-content">
+                        <h2>Are you sure delete this user?</h2>
+                        <button className="delete">Agree</button>
+                        <button className="cancel">Disagree</button>
                     </div>
                 </div>
+                <h2>I am user control dashboard</h2>
+                <div className="user-data">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User photo</th>
+                                <th>User name</th>
+                                <th>Email address</th>
+                                <th>Phone number</th>
+                                <th>User ID</th>
+                                <th>Active date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" style={{ height: '50px' }} />
+                                </td>
+                                <td onClick={handleProfile} className="user-name">Mr. simon hembrom</td>
+                                <td>cmoxsh@gmail.com</td>
+                                <td>+880 1799867752</td>
+                                <td>utskf52673</td>
+                                <td>02/06/2021</td>
+                                <td><button onClick={userDelete}>Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
         </div>
     );
-}
+};
 
 export default UserControl;
