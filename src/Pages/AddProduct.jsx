@@ -24,8 +24,8 @@ const AddProduct = () => {
             photoUrl: photoUrl
         };
         const url = `http://localhost:5200/addProduct`;
-        console.log(url);
-        console.log(productsData);
+        console.log(url); // No 02
+        console.log(productsData); // No 03
         fetch(url, {
             method: 'POST',
             headers: {
@@ -33,7 +33,11 @@ const AddProduct = () => {
             },
             body: JSON.stringify(productsData)
         })
-            .then(res => console.log('From server response', res));
+            .then(res => {
+                console.log('From server response', res) // No 04
+                const message = document.getElementById("myMessage");
+                message.style.display = "block";
+            });
     };
 
     // Handle Images Upload:
@@ -47,7 +51,7 @@ const AddProduct = () => {
         axios.post('https://api.imgbb.com/1/upload', photoData)
             .then(function (response) {
                 setPhotoUrl(response.data.data.display_url);
-                console.log(response.data.data.display_url);
+                console.log(response.data.data.display_url); // No 01
             })
             .catch(function (error) {
                 console.log(error);
@@ -56,7 +60,10 @@ const AddProduct = () => {
 
     return (
         <div className="main">
-            <h1>Add online database store to your products</h1> <br />
+            <div className="sub-main">
+                <p id="myMessage"><strong>Your product is updated!</strong></p>
+                <h1>Add online database store to your products</h1> <br />
+            </div>
             <div className="form-container">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="main-form">

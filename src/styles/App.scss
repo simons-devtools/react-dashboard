@@ -126,26 +126,26 @@ body {
 }
 // end sidebar;
 
-   /* Start scrollbar */
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
+/* Start scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
 
-  ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px #0000004d;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-  }
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #0000004d;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
 
-  ::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: #ff0000cc;
-  }
-  ::-webkit-scrollbar-thumb:window-inactive {
-    background-color: #ff000066;
-  }
-  // end scrollbar;
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #ff0000cc;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background-color: #ff000066;
+}
+// end scrollbar;
 
 // Dashboard page styles: (Dashboard.jsx)
 main {
@@ -182,9 +182,30 @@ main {
 
 // Add products page contents styles: (AddProduct.jsx)
 .main {
-  padding: 20px;
+  padding: 20px 20px 80px 30px;
   margin: 30px;
   background-color: #fff;
+}
+
+.sub-main p {
+  display: none;
+  width: 200px;
+  color: #fff;
+  background-color: lightgreen;
+  border-radius: 15px;
+  padding: 5px;
+  animation: slideInLeft 1s linear 0s;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    visibility: visible;
+  }
+  100% {
+    transform: translateX(100%);
+    display: none;
+  }
 }
 
 .main-form {
@@ -280,6 +301,12 @@ main {
   background-color: #ffffff;
   overflow-y: scroll;
   overflow-x: auto;
+  animation: slidein 1s;
+}
+
+@keyframes slidein {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
 .main-profile {

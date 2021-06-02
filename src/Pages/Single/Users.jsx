@@ -12,6 +12,7 @@ const Users = (props) => {
                     <li>cmoxsh@gmail.com</li>
                     <li>pass: abcd1234</li>
                     <li>active: 02/06/2021</li>
+                    <li>status: admin</li>
                 </ul>
             </div>
 

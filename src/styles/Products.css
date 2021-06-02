@@ -74,6 +74,12 @@ tbody tr:hover {
         background-color: #ffffff;
         overflow-y: scroll;
         overflow-x: auto;
+        animation: slidein 1s;
+   }
+
+   @keyframes slidein {
+       from { transform: scaleX(0); }
+       to { transform: scaleX(1); }
    }
 
    .product-detail {
