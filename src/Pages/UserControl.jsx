@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Users from '../Single-pages/Users/Users';
+import Users from './Single/Users';
 
 const UserControl = () => {
     const [singleUser, setSingleUser] = useState({});
