@@ -146,6 +146,20 @@ body {
   }
 }
 
+// Dashboard page styles: 
+main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.content-box {
+  width: 30%;
+  border: 1px solid #dbdada;
+  padding: 10px;
+  margin: 10px 5px;
+}
+
 // 404 page contents styles:
 .backButton {
   color: azure;
@@ -195,4 +209,77 @@ body {
     height: 200px;
     background-color: transparent;
   }
+}
+
+// Users control page styles: 
+.main-profile {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 70px 50px;
+  padding: 50px 20px;
+  letter-spacing: 2px;
+  background-color: #fff;
+}
+
+.main-profile ul {
+  list-style: none;
+  line-height: 35px;
+  padding: 0;
+}
+
+.profile-left {
+  flex-basis: 25%;
+  margin-top: 25px;
+  margin-right: 50px;
+}
+
+.profile-right {
+  flex-basis: 70%;
+}
+
+.profile-left img {
+  width: 280px;
+  height: 185px;
+}
+
+.content-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  line-height: 20px;
+}
+
+.content-top button {
+  border: 1px solid #efeef0;
+  font-weight: bold;
+  color: #7c7979;
+  background-color: #7270700e;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+.content-top button:hover {
+  border: 1px solid blueviolet;
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.content-top button:focus {
+  color: #fff;
+  border: 1px solid blueviolet;
+}
+
+.tween-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user-title {
+  flex-basis: 40%;
+}
+
+.user-info {
+  flex-basis: 60%;
+  color: blueviolet;
 }
