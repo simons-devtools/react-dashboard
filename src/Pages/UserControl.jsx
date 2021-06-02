@@ -29,7 +29,7 @@ const UserControl = () => {
     }
 
     return (
-        <div style={{ margin: '20px' }}>
+        <div style={{ margin: '50px' }}>
             <div className="">
                 <div id="userModal" className="user-modal">
                     <div className="user-modal-content">
