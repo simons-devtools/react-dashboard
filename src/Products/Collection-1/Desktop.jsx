@@ -25,7 +25,7 @@ const Desktop = () => {
         }
 
         window.onclick = function (event) {
-            if (event.target == modal) {
+            if (event.target === modal) {
                 modal.style.display = "none";
             }
         }
@@ -76,7 +76,7 @@ const Desktop = () => {
             </div>
             <h1 style={{ padding: '0 15px' }}>Customize your <span style={{ color: 'tomato' }}>"smart phone"</span> products</h1>
             {
-                products.length <= 0 ? <img style={{ margin: 'auto' }} src={Loading} /> :
+                products.length <= 0 ? <img style={{ margin: 'auto' }} src={Loading} alt="" /> :
                     <div>
                         <div style={{ padding: '0 15px' }}>
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>

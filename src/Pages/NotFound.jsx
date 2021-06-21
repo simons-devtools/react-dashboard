@@ -17,7 +17,7 @@ const NotFound = (props) => {
 
     return (
         <div style={myStyle}>
-            <img src={NoMacth} style={myImageStyle} />
+            <img src={NoMacth} style={myImageStyle} alt="" />
             <h1 style={{ color: 'tomato' }}>The page is not found! Please try again letter . . .</h1>
             <Link to="/dashboard">
                 <button className="backButton">Back to home</button>

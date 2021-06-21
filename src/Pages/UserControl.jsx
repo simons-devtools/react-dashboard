@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Users from './Single/Users';
 
 const UserControl = () => {
-    const [singleUser, setSingleUser] = useState({});
-
     // View single product handler func:
     const handleProfile = () => {
         const modal = document.getElementById("userModal");
         modal.style.display = "block";
 
         window.onclick = function (event) {
-            if (event.target == modal) {
+            if (event.target === modal) {
                 modal.style.display = "none";
             }
         }
-        // setSingleUser(user);
     }
 
     // Delete single product handler func:
@@ -60,7 +57,7 @@ const UserControl = () => {
                         <tbody>
                             <tr>
                                 <td>
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" style={{ height: '50px' }} />
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" style={{ height: '50px' }} alt="" />
                                 </td>
                                 <td onClick={handleProfile} className="user-name">Mr. simon hembrom</td>
                                 <td>cmoxsh@gmail.com</td>

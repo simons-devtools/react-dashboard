@@ -6,7 +6,7 @@ const Dashboard = (props) => {
         <div>
 
             <header style={{ display: 'flex', flexWrap: 'wrap', margin: '20px' }}>
-                <img src={Logo} style={{ height: '100px' }} />
+                <img src={Logo} style={{ height: '100px' }} alt="" />
                 <h1>Welcome to admin dashboard</h1>
             </header>
 
