@@ -8,7 +8,7 @@ const SmartPhone = () => {
     const [singleProduct, setSingleProduct] = useState({});
 
     useEffect(() => {
-        const url = 'https://spdevserver.herokuapp.com/products'
+        const url = 'http://localhost:5200/products'
         fetch(url)
             .then(res => res.json())
             .then(data => setProducts(data))
@@ -33,23 +33,20 @@ const SmartPhone = () => {
     }
 
     // Delete single product handler func:
-    const handleDelete = (addedKey) => {
-        console.log('Delete product ID 1', addedKey);
-        alert('Are you delete this product?');
-
-        fetch(`https://spdevserver.herokuapp.com/deleteOne/${addedKey}`, {
+    const handleDelete = (addedId) => {
+        fetch(`http://localhost:5200/deleteDataOne/${addedId}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
             .then(result => {
-                console.log('Deleted is', result);
-                alert('Are you sure delete this product from your wishlist...??');
+                // console.log('Deleted is', result);
+                alert('Your are deleted this product from database storage!!');
                 for (let i = 0; i < products.length; i++) {
                     const prod = products[i];
-                    if (prod.key === addedKey) {
+                    if (prod._id === addedId) {
                         products.splice(i, 1);
-                        let newProducts = [...products];
-                        setProducts(newProducts);
+                        let newCartProducts = [...products];
+                        setProducts(newCartProducts);
                     }
                 }
             })
@@ -90,11 +87,10 @@ const SmartPhone = () => {
                                         <span>Rows per page </span>
                                         <input type="number" defaultValue="10" style={{ width: '40px' }} />
                                     </p>
-                                    <p style={{ marginRight: '35px' }}>1<span> - </span>10 of <span>123</span></p>
+                                    <p style={{ marginRight: '35px' }}>1<span> - </span>10 of <span>{products.length}</span></p>
                                     <p><span></span></p>
                                 </div>
                             </div>
-
                             <table>
                                 <thead>
                                     <tr>
