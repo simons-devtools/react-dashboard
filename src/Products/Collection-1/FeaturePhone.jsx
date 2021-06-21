@@ -8,7 +8,7 @@ const FeaturePhone = () => {
     const [singleProduct, setSingleProduct] = useState({});
 
     useEffect(() => {
-        const url = 'http://localhost:5200/products'
+        const url = 'https://spdevserver.herokuapp.com/products'
         fetch(url)
             .then(res => res.json())
             .then(data => setProducts(data))
