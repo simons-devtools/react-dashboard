@@ -23,9 +23,9 @@ const AddProduct = () => {
             discount: data.discount,
             photoUrl: photoUrl
         };
-        const url = `http://localhost:5200/addProduct`;
-        console.log(url); // No 02
-        console.log(productsData); // No 03
+        const url = `https://spdevserver.herokuapp.com/addProduct`;
+        // console.log(url); // No 02
+        // console.log(productsData); // No 03
         fetch(url, {
             method: 'POST',
             headers: {
@@ -34,9 +34,10 @@ const AddProduct = () => {
             body: JSON.stringify(productsData)
         })
             .then(res => {
-                console.log('From server response', res) // No 04
+                // console.log('From server response', res) // No 04
                 const message = document.getElementById("myMessage");
                 message.style.display = "block";
+                // alert('Your product is added to the server storage!');
             });
     };
 
@@ -51,7 +52,7 @@ const AddProduct = () => {
         axios.post('https://api.imgbb.com/1/upload', photoData)
             .then(function (response) {
                 setPhotoUrl(response.data.data.display_url);
-                console.log(response.data.data.display_url); // No 01
+                // console.log(response.data.data.display_url); // No 01
             })
             .catch(function (error) {
                 console.log(error);
@@ -61,8 +62,7 @@ const AddProduct = () => {
     return (
         <div className="main">
             <div className="sub-main">
-                <p id="myMessage"><strong>Your product is updated!</strong></p>
-                <h1>Add online database store to your products</h1> <br />
+                <p id="myMessage"><strong>Your product is added to the server storage!</strong></p>
             </div>
             <div className="form-container">
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -81,14 +81,14 @@ const AddProduct = () => {
                             <input type="seller" placeholder="seller" {...register("seller")} />
                             <input type="author" placeholder="Author" {...register("author")} />
                             <input type="file" onChange={handleImageUpload} className="file" />
-                            <input type="stock" {...register("stock", { required: true })} />
-                            <input type="discount" {...register("discount", { required: true })} />
+                            <input type="stock" placeholder="Stock" {...register("stock", { required: true })} />
+                            <input type="discount" placeholder="Discount" {...register("discount", { required: true })} />
                             <input type="date" {...register("date", { required: true })} />
                         </div>
                         <div className="last-input">
                             <h3>Last products box</h3>
                             <textarea type="text" placeholder="Enter your product features. . ." {...register("features")} /> <br />
-                            <input type="submit" value="Add product" className="add-btn" />
+                            <input type="submit" value="Add your product" className="add-btn" />
                         </div>
                     </div>
                 </form>

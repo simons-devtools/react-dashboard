@@ -4,7 +4,7 @@ import { Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { FaList, FaRegLaughWink, FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const DropdownMenus = (props) => {
+const Dropdown = (props) => {
     const intl = useIntl();
 
     return (
@@ -122,4 +122,4 @@ const DropdownMenus = (props) => {
     );
 };
 
-export default DropdownMenus;
+export default Dropdown;

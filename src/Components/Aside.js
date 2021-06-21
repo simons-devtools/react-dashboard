@@ -5,7 +5,7 @@ import { ProSidebar, Menu, MenuItem, SidebarHeader, SidebarFooter, SidebarConten
 import { FaTachometerAlt, FaGem } from 'react-icons/fa';
 import sidebarBg from '../assets/bg1.jpg';
 import { Link } from 'react-router-dom';
-import DropdownMenus from './DropdownMenus';
+import Dropdown from './Dropdown';
 
 const Aside = (props) => {
   const { collapsed, toggled, handleToggleSidebar, handleCollapsedChange } = props;
@@ -51,7 +51,7 @@ const Aside = (props) => {
           </Menu>
 
           {/* Dropdown Menus: middle/02 */}
-          <DropdownMenus />
+          <Dropdown />
 
 
           {/* Single menu: down/3 */}
