@@ -33,16 +33,23 @@ const Laptop = () => {
     }
 
     // Delete single product handler func:
-    const handleDelete = (key) => {
-        console.log('Delete product ID', key);
-        const modal = document.getElementById("deleteModal");
-        modal.style.display = "block";
-
-        const cancel = document.getElementsByClassName("cancel")[0];
-        cancel.onclick = function () {
-            modal.style.display = "none";
-        }
-
+    const handleDelete = (addedId) => {
+        fetch(`https://spdevserver.herokuapp.com/deleteDataOne/${addedId}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(result => {
+                // console.log('Deleted is', result);
+                alert('Your are deleted this product from database storage!!');
+                for (let i = 0; i < products.length; i++) {
+                    const prod = products[i];
+                    if (prod._id === addedId) {
+                        products.splice(i, 1);
+                        let newCartProducts = [...products];
+                        setProducts(newCartProducts);
+                    }
+                }
+            })
     }
 
     // Checkbox function:
@@ -67,13 +74,6 @@ const Laptop = () => {
                     <ViewProduct singleProduct={singleProduct} />
                 </div>
             </div>
-            <div id="deleteModal" className="delete-modal">
-                <div className="delete-content">
-                    <h2>Are you sure delete this product?</h2>
-                    <button className="delete">Agree</button>
-                    <button className="cancel">Disagree</button>
-                </div>
-            </div>
             <h1 style={{ padding: '0 15px' }}>Customize your <span style={{ color: 'tomato' }}>"smart phone"</span> products</h1>
             {
                 products.length <= 0 ? <img style={{ margin: 'auto' }} src={Loading} alt="" /> :
@@ -86,7 +86,7 @@ const Laptop = () => {
                                         <span>Rows per page </span>
                                         <input type="number" defaultValue="10" style={{ width: '40px' }} />
                                     </p>
-                                    <p style={{ marginRight: '35px' }}>1<span> - </span>10 of <span>123</span></p>
+                                    <p style={{ marginRight: '35px' }}>1<span> - </span>10 of <span>{products.length}</span></p>
                                     <p><span></span></p>
                                 </div>
                             </div>
