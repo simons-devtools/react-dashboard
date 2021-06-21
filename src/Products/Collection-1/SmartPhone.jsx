@@ -25,7 +25,7 @@ const SmartPhone = () => {
         }
 
         window.onclick = function (event) {
-            if (event.target == modal) {
+            if (event.target === modal) {
                 modal.style.display = "none";
             }
         }
@@ -33,16 +33,26 @@ const SmartPhone = () => {
     }
 
     // Delete single product handler func:
-    const handleDelete = (key) => {
-        console.log('Delete product ID', key);
-        const modal = document.getElementById("deleteModal");
-        modal.style.display = "block";
+    const handleDelete = (addedKey) => {
+        console.log('Delete product ID 1', addedKey);
+        alert('Are you delete this product?');
 
-        const cancel = document.getElementsByClassName("cancel")[0];
-        cancel.onclick = function () {
-            modal.style.display = "none";
-        }
-
+        fetch(`https://spdevserver.herokuapp.com/deleteOne/${addedKey}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log('Deleted is', result);
+                alert('Are you sure delete this product from your wishlist...??');
+                for (let i = 0; i < products.length; i++) {
+                    const prod = products[i];
+                    if (prod.key === addedKey) {
+                        products.splice(i, 1);
+                        let newProducts = [...products];
+                        setProducts(newProducts);
+                    }
+                }
+            })
     }
 
     // Checkbox function:
@@ -62,21 +72,15 @@ const SmartPhone = () => {
     return (
         <>
             <div id="myModal" className="modal">
+                {/* For the update product modal */}
                 <div>
                     <span class="close">&times;</span>
                     <ViewProduct singleProduct={singleProduct} />
                 </div>
             </div>
-            <div id="deleteModal" className="delete-modal">
-                <div className="delete-content">
-                    <h2>Are you sure delete this product?</h2>
-                    <button className="delete">Agree</button>
-                    <button className="cancel">Disagree</button>
-                </div>
-            </div>
             <h1 style={{ padding: '0 15px' }}>Customize your <span style={{ color: 'tomato' }}>"smart phone"</span> products</h1>
             {
-                products.length <= 0 ? <img style={{ margin: 'auto' }} src={Loading} /> :
+                products.length <= 0 ? <img style={{ margin: 'auto' }} src={Loading} alt="" /> :
                     <div>
                         <div style={{ padding: '0 15px' }}>
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>

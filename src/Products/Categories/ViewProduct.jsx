@@ -20,7 +20,7 @@ const ViewProduct = (props) => {
                         <input type="text" defaultValue={collection} /> <br />
                         <input type="text" defaultValue={date} />
                     </form>
-                    <img src={photoUrl} /> <br />
+                    <img src={photoUrl} alt="" /> <br />
                 </div>
                 <div className="product-features">
                     <textarea defaultValue={features}></textarea> <br />

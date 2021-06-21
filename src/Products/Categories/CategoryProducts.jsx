@@ -13,7 +13,7 @@ const CategoryProducts = (props) => {
                 checked={checked}
                 onChange={singleCheckedBox}
             /></th>
-            <td><img src={photoUrl} style={{ width: '70px', height: '50px' }} /></td>
+            <td><img src={photoUrl} style={{ width: '70px', height: '50px' }} alt="" /></td>
             <td>{name}</td>
             <td>{collection}</td>
             <td>{group}</td>
@@ -21,8 +21,8 @@ const CategoryProducts = (props) => {
             <td>{key}</td>
             <td>{price}</td>
             <td>
-                <img onClick={() => handleView(product)} src={EditImg} className="action" />
-                <img onClick={() => handleDelete(key)} src={DeleteImg} className="action" />
+                <img onClick={() => handleView(product)} src={EditImg} alt="" className="action" />
+                <img onClick={() => handleDelete(key)} src={DeleteImg} alt="" className="action" />
             </td>
         </tr>
     );
