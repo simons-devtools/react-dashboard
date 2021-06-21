@@ -79,7 +79,7 @@ const SmartPhone = () => {
             {
                 products.length <= 0 ? <img style={{ margin: 'auto' }} src={Loading} alt="" /> :
                     <div>
-                        <div style={{ padding: '0 15px' }}>
+                        <div className="products-mainn">
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                 <p><input type="text" placeholder="Search your brand . . ." style={{ padding: '10px 5px' }} /></p>
                                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', letterSpacing: '2px' }}>
@@ -122,9 +122,9 @@ const SmartPhone = () => {
                                 </tbody>
                             </table>
                         </div>
-                        <div style={{ color: 'azure', backgroundColor: 'grey', textAlign: 'center', padding: '14px 0' }}>
+                        <footer style={{ color: 'azure', backgroundColor: 'grey', textAlign: 'center', padding: '14px 0' }}>
                             <p>&copy; Copy right by 2021 || All right reserved by Devtools.</p>
-                        </div>
+                        </footer>
                     </div>
             }
         </>
