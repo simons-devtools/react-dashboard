@@ -8,7 +8,7 @@ const SecurityCamera = () => {
     const [singleProduct, setSingleProduct] = useState({});
 
     useEffect(() => {
-        const url = 'https://spdevserver.herokuapp.com/products'
+        const url = 'https://rajshopnilserver.herokuapp.com/products'
         fetch(url)
             .then(res => res.json())
             .then(data => setProducts(data))
@@ -34,7 +34,7 @@ const SecurityCamera = () => {
 
     // Delete single product handler func:
     const handleDelete = (addedId) => {
-        fetch(`https://spdevserver.herokuapp.com/deleteDataOne/${addedId}`, {
+        fetch(`https://rajshopnilserver.herokuapp.com/deleteDataOne/${addedId}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
