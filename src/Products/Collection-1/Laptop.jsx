@@ -3,7 +3,7 @@ import CategoryProducts from '../Categories/CategoryProducts';
 import Loading from '../../assets/loading.gif';
 import ViewProduct from '../Categories/ViewProduct';
 
-const Laptop = () => {
+const SmartPhone = () => {
     const [products, setProducts] = useState([]);
     const [singleProduct, setSingleProduct] = useState({});
 
@@ -14,8 +14,8 @@ const Laptop = () => {
             .then(data => setProducts(data))
     }, [])
 
-    // View single product handler func:
-    const handleView = (product) => {
+    // View single product with modal func:
+    const viewProduct = (prod) => {
         const modal = document.getElementById("myModal");
         modal.style.display = "block";
 
@@ -29,7 +29,37 @@ const Laptop = () => {
                 modal.style.display = "none";
             }
         }
-        setSingleProduct(product);
+        setSingleProduct(prod);
+    }
+
+    // Update single product handler func:
+    const updateProduct = (prodId) => {
+        const name = document.querySelector('.name').value;
+        const price = document.querySelector('.price').value;
+        const group = document.querySelector('.group').value;
+        const key = document.querySelector('.key').value;
+        const seller = document.querySelector('.seller').value;
+        const author = document.querySelector('.author').value;
+        const category = document.querySelector('.category').value;
+        const collection = document.querySelector('.collection').value;
+        const date = document.querySelector('.date').value;
+        const product = { prodId, name, price, group, key, seller, author, category, collection, date };
+        fetch(`https://rajshopnilserver.herokuapp.com/update/${prodId}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(product)
+        })
+            .then(res => res.json())
+            .then(result => {
+                // console.log('Updated successfully', result);
+                if (result) {
+                    const modal = document.getElementById("myModal");
+                    modal.style.display = "none";
+                    setTimeout(() => {
+                        alert('Your product is successfully updated.');
+                    }, 500);
+                }
+            })
     }
 
     // Delete single product handler func:
@@ -45,8 +75,8 @@ const Laptop = () => {
                     const prod = products[i];
                     if (prod._id === addedId) {
                         products.splice(i, 1);
-                        let newCartProducts = [...products];
-                        setProducts(newCartProducts);
+                        let newProducts = [...products];
+                        setProducts(newProducts);
                     }
                 }
             })
@@ -69,28 +99,23 @@ const Laptop = () => {
     return (
         <>
             <div id="myModal" className="modal">
+                {/* For the update product modal */}
                 <div>
-                    <span class="close">&times;</span>
-                    <ViewProduct singleProduct={singleProduct} />
+                    <span className="close">&times;</span>
+                    <ViewProduct
+                        updateProduct={updateProduct}
+                        singleProduct={singleProduct}
+                    />
                 </div>
             </div>
             <h1 style={{ padding: '0 15px' }}>Customize your <span style={{ color: 'tomato' }}>"smart phone"</span> products</h1>
             {
                 products.length <= 0 ? <img style={{ margin: 'auto' }} src={Loading} alt="" /> :
                     <div>
-                        <div style={{ padding: '0 15px' }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                <p><input type="text" placeholder="Search your brand . . ." style={{ padding: '10px 5px' }} /></p>
-                                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', letterSpacing: '2px' }}>
-                                    <p style={{ color: 'grey', fontWeight: '700', marginRight: '20px' }}>
-                                        <span>Rows per page </span>
-                                        <input type="number" defaultValue="10" style={{ width: '40px' }} />
-                                    </p>
-                                    <p style={{ marginRight: '35px' }}>1<span> - </span>10 of <span>{products.length}</span></p>
-                                    <p><span></span></p>
-                                </div>
+                        <div className="products-mainn">
+                            <div>
+                                <input type="text" placeholder="Search your brand . . ." style={{ padding: '10px 5px' }} />
                             </div>
-
                             <table>
                                 <thead>
                                     <tr>
@@ -115,15 +140,17 @@ const Laptop = () => {
                                                 checked={single}
                                                 singleCheckedBox={singleCheckedBox}
                                                 product={pd} key={pd.key}
-                                                handleView={handleView}
+                                                viewProduct={viewProduct}
                                                 handleDelete={handleDelete}
                                             /> : '')
                                     }
                                 </tbody>
                             </table>
                         </div>
-                        <div style={{ color: 'azure', backgroundColor: 'grey', textAlign: 'center', padding: '14px 0' }}>
-                            <p>&copy; Copy right by 2021 || All right reserved by Devtools.</p>
+                        <div className="footer">
+                            <p>Previous 20</p>
+                            <p>1 - 20 of {products.length}</p>
+                            <p>Next 10</p>
                         </div>
                     </div>
             }
@@ -131,4 +158,4 @@ const Laptop = () => {
     );
 };
 
-export default Laptop;
+export default SmartPhone;
