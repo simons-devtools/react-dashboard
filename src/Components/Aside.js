@@ -1,6 +1,5 @@
 import React from 'react';
 import Switch from 'react-switch';
-import { useIntl } from 'react-intl';
 import { ProSidebar, Menu, MenuItem, SidebarHeader, SidebarFooter, SidebarContent } from 'react-pro-sidebar';
 import { FaTachometerAlt, FaGem } from 'react-icons/fa';
 import sidebarBg from '../assets/bg1.jpg';
@@ -9,7 +8,6 @@ import Dropdown from './Dropdown';
 
 const Aside = (props) => {
   const { collapsed, toggled, handleToggleSidebar, handleCollapsedChange } = props;
-  const intl = useIntl();
 
   return (
     <>
@@ -33,20 +31,20 @@ const Aside = (props) => {
               whiteSpace: 'nowrap',
             }}
           >
-            {intl.formatMessage({ id: 'Developer dashboard' })}
+            <p>Developer dashboard</p>
           </div>
         </SidebarHeader>
 
         <SidebarContent>
           {/* Single menu: top/1 */}
           <Menu iconShape="circle">
-            <MenuItem icon={<FaTachometerAlt />} suffix={<span className="badge red">new</span>}>
+          <MenuItem icon={<FaTachometerAlt />} suffix={<span className="badge red">new</span>}>
               dashboard
-            <Link to="/" />
+              <Link to="/" />
             </MenuItem>
             <MenuItem icon={<FaGem />}>
               add products
-            <Link to="/dashboard/add-products" />
+              <Link to="/dashboard/add-products" />
             </MenuItem>
           </Menu>
 
@@ -56,7 +54,7 @@ const Aside = (props) => {
 
           {/* Single menu: down/3 */}
           <Menu iconShape="circle">
-            <MenuItem icon={<FaTachometerAlt />} suffix={<span className="badge red">new</span>}>
+          <MenuItem icon={<FaTachometerAlt />} suffix={<span className="badge red">new</span>}>
               user control
               <Link to="/dashboard/users-control" />
             </MenuItem>
