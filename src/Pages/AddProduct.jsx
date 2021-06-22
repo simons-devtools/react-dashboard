@@ -23,7 +23,7 @@ const AddProduct = () => {
             discount: data.discount,
             photoUrl: photoUrl
         };
-        const url = `https://spdevserver.herokuapp.com/addProduct`;
+        const url = `https://rajshopnilserver.herokuapp.com/addProduct`;
         // console.log(url); // No 02
         // console.log(productsData); // No 03
         fetch(url, {
