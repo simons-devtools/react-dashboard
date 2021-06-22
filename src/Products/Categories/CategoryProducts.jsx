@@ -4,7 +4,7 @@ import DeleteImg from '../../assets/trush.png';
 
 const CategoryProducts = (props) => {
     // console.log(props.product);
-    const { product, handleView, handleDelete, checked, singleCheckedBox } = props;
+    const { product, viewProduct, handleDelete, checked, singleCheckedBox } = props;
     const { photoUrl, name, collection, group, category, _id, key, price } = product;
 
     return (
@@ -21,7 +21,7 @@ const CategoryProducts = (props) => {
             <td>{key}</td>
             <td>{price}</td>
             <td>
-                <img onClick={() => handleView(product)} src={EditImg} alt="" className="action" />
+                <img onClick={() => viewProduct(product)} src={EditImg} alt="" className="action" />
                 <img onClick={() => handleDelete(_id)} src={DeleteImg} alt="" className="action" />
             </td>
         </tr>
