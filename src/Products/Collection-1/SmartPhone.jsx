@@ -8,7 +8,7 @@ const SmartPhone = () => {
     const [singleProduct, setSingleProduct] = useState({});
 
     useEffect(() => {
-        const url = 'http://localhost:5200/products'
+        const url = 'https://rajshopnilserver.herokuapp.com/products'
         fetch(url)
             .then(res => res.json())
             .then(data => setProducts(data))
@@ -34,7 +34,7 @@ const SmartPhone = () => {
 
     // Delete single product handler func:
     const handleDelete = (addedId) => {
-        fetch(`http://localhost:5200/deleteDataOne/${addedId}`, {
+        fetch(`https://rajshopnilserver.herokuapp.com/deleteDataOne/${addedId}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
